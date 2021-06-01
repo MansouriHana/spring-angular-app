@@ -28,7 +28,7 @@ public class EmployeeeController {
 	@PostMapping("/employees")
 	public Employee createEmployee(@Validated @RequestBody Employee employee) {
 		System.out.println("email >>>> "+employee.getEmailId());
-		//return employeeRepository.save(employee);
-		return null;
+		return employeeRepository.save(employee);
+		//return null;
 	}
 }
