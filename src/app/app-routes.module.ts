@@ -6,6 +6,9 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 
 const appRoutes: Routes = [
+  { 
+    path: '', redirectTo: '/employees', pathMatch: 'full' 
+  },
   {
     path: "employees", component: EmployeeListComponent
   },
@@ -25,6 +28,6 @@ const appRoutes: Routes = [
   ],
   exports: [
     RouterModule
-    ],
+  ],
 })
 export class AppRoutesModule { }

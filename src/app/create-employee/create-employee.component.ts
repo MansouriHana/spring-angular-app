@@ -10,7 +10,7 @@ import { EmployeeService } from '../services/employee.service';
 })
 export class CreateEmployeeComponent implements OnInit {
 
-  employee: Employee = new Employee();
+  employee: Employee = new Employee(0,"","","",false);
   submitted = false;
   constructor(private employeeService: EmployeeService,
     private router: Router) { }
@@ -21,16 +21,15 @@ export class CreateEmployeeComponent implements OnInit {
     this.router.navigate(["/employees"]);
   }
   save() {
-    console.log("save >>>>>>>>>>>>>>>>>>>>>>>>")
     console.log(JSON.stringify(this.employee))
-    /*this.employeeService.createEmployee(this.employee).subscribe(data => {
+    this.employeeService.createEmployee(this.employee).subscribe(data => {
       
       console.log(data);
-     // this.employee = new Employee();
-      //this.gotoList();
+      this.employee =  new Employee(0,"","","",false);
+      this.gotoList();
     },
       error => console.log("error => ", error)
-    );*/
+    );
   }
   onSubmit() {
     this.submitted = true;
