@@ -19,7 +19,7 @@
                     <td>{{employee.emailId}}</td>
                     <td>
                         <button class="btn btn-danger">Delete</button>
-                        <button class="btn btn-info" style="margin-left: 10px;">Details</button>
+                        <button class="btn btn-info" style="margin-left: 10px;" (click)="goToDetails(employee.id)">Details</button>
                     </td>
                 </tr>
             </tbody>

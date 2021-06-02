@@ -13,7 +13,7 @@ const appRoutes: Routes = [
     path: "employees", component: EmployeeListComponent
   },
   {
-    path: "details", component: EmployeeDetailsComponent
+    path: "details/:id", component: EmployeeDetailsComponent
   },
   {
     path: "add-employee", component: CreateEmployeeComponent
