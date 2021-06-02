@@ -1,8 +1,10 @@
 package com.crudApp.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.crudApp.exception.EmployeeNotFound;
 import com.crudApp.model.Employee;
 import com.crudApp.repositories.EmployeeRepository;
 
@@ -34,7 +37,11 @@ public class EmployeeeController {
 	}
 	
 	@GetMapping("/employees/{id}")
-	public Employee getEmployeeById(@PathVariable long id){
-		return employeeRepository.getById(id);
+	public ResponseEntity<Employee> getEmployeeById(@PathVariable long id) throws EmployeeNotFound{
+		Employee employee = employeeRepository.findById(id).orElseThrow(() -> new EmployeeNotFound("Employee not found for this id :: " + id));
+		return  ResponseEntity.ok().body(employee);
 	}
+	
+	
+	
 }
