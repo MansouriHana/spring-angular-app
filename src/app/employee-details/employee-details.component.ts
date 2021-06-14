@@ -5,7 +5,7 @@ import { EmployeeService } from '../services/employee.service';
 
 @Component({
   selector: 'app-employee-details',
-  templateUrl: './employee-details.component.html',
+  templateUrl: './employee-details.component.html', 
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent implements OnInit {
@@ -13,7 +13,7 @@ export class EmployeeDetailsComponent implements OnInit {
   employee!: Employee;
   constructor(private route: ActivatedRoute, private employeeService: EmployeeService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {   
     this.employee = new Employee(0, "", "", "", false);
     this.id = this.route.snapshot.params['id'];
     this.employeeService.getEmployeeById(this.id).subscribe(data =>{

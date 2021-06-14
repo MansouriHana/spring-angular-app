@@ -11,6 +11,7 @@ import { EmployeeService } from '../services/employee.service';
 })
 export class EmployeeListComponent implements OnInit {
   employees!: Observable<Employee[]>;
+
   constructor(private employeeService: EmployeeService, private router: Router) { }
 
   ngOnInit(): void {
@@ -20,7 +21,14 @@ export class EmployeeListComponent implements OnInit {
   reloadData() {
     this.employees = this.employeeService.getEmployeesList();
   }
-  goToDetails(id: number){
+  goToDetails(id: number) {
     this.router.navigate(['details', id])
+  }
+  deleteEmployee(id: number) {
+    console.log("deleteEmployee >>>>>>>>>>>>>>>>><<")
+    this.employeeService.deleteEmployee(id).subscribe((data) => {
+      console.log("after deleting from data base")
+      console.log(JSON.stringify(data));
+    }, (error) => console.error("Error >> " + error));;
   }
 }
