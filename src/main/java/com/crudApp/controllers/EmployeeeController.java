@@ -1,12 +1,14 @@
 package com.crudApp.controllers;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,6 +42,15 @@ public class EmployeeeController {
 	public ResponseEntity<Employee> getEmployeeById(@PathVariable long id) throws EmployeeNotFound{
 		Employee employee = employeeRepository.findById(id).orElseThrow(() -> new EmployeeNotFound("Employee not found for this id :: " + id));
 		return  ResponseEntity.ok().body(employee);
+	}
+	
+	@DeleteMapping("/employees/{id}")
+	public Map<String,Boolean> deleteEmployee(@PathVariable(value="id") long id) throws EmployeeNotFound{
+		Employee employee = employeeRepository.findById(id).orElseThrow(() -> new EmployeeNotFound("Employee not found for this id :: " + id));
+		employeeRepository.delete(employee);
+		Map<String,Boolean> response = new HashMap<>();
+		response.put("deleted",Boolean.TRUE);
+		return null;
 	}
 	
 	
