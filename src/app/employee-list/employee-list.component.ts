@@ -29,6 +29,7 @@ export class EmployeeListComponent implements OnInit {
     this.employeeService.deleteEmployee(id).subscribe((data) => {
       console.log("after deleting from data base")
       console.log(JSON.stringify(data));
+      this.reloadData();
     }, (error) => console.error("Error >> " + error));;
   }
 
