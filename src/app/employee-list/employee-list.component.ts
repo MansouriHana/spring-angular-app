@@ -31,4 +31,8 @@ export class EmployeeListComponent implements OnInit {
       console.log(JSON.stringify(data));
     }, (error) => console.error("Error >> " + error));;
   }
+
+  updateEmployee(id: number){
+    this.router.navigate(['update-employee', id]);
+  }
 }

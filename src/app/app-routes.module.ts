@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 
 const appRoutes: Routes = [
   { 
@@ -17,6 +18,9 @@ const appRoutes: Routes = [
   },
   {
     path: "add-employee", component: CreateEmployeeComponent
+  },
+  {
+    path: "update-employee/:id", component: UpdateEmployeeComponent
   }
 ]
 
