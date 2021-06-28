@@ -5,6 +5,7 @@ export class Employee {
         lastname : string,
         emailId: string,
         active: boolean,
+        pwd:string
       ) {  }
 
 }

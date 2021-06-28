@@ -10,7 +10,7 @@ import { EmployeeService } from '../services/employee.service';
 })
 export class CreateEmployeeComponent implements OnInit {
 
-  employee: Employee = new Employee(0,"","","",false);
+  employee: Employee = new Employee(0,"","","",false,"");
   submitted = false;
   constructor(private employeeService: EmployeeService,
     private router: Router) { }
@@ -25,7 +25,7 @@ export class CreateEmployeeComponent implements OnInit {
     this.employeeService.createEmployee(this.employee).subscribe(data => {
       
       console.log(data);
-      this.employee =  new Employee(0,"","","",false);
+      this.employee =  new Employee(0,"","","",false,"");
       this.gotoList();
     },
       error => console.log("error => ", error)

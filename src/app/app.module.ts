@@ -8,6 +8,8 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
 import { AppRoutesModule } from './app-routes.module';
 import { FormsModule } from '@angular/forms';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
     CreateEmployeeComponent,
     EmployeeListComponent,
     EmployeeDetailsComponent,
-    UpdateEmployeeComponent
+    UpdateEmployeeComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
