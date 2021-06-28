@@ -25,15 +25,19 @@ public class Employee {
 	@Column(name="email_id")
 	private String emailId;
 	
+	@Column(name="pwd")
+	private String password;
+	
 	public Employee() {
 		super();
 	}
-	public Employee(long id, String firstname, String lastname, String emailId) {
+	public Employee(long id, String firstname, String lastname, String emailId, String password) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.emailId = emailId;
+		this.password = password;
 	}
 	public long getId() {
 		return id;
@@ -47,6 +51,12 @@ public class Employee {
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getLastname() {
 		return lastname;
 	}
@@ -59,6 +69,7 @@ public class Employee {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
+	
 	
 	
 	
