@@ -10,7 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
-
+import { EmployeeService } from './services/employee.service';
+import { LoginService } from './services/login.service';
+import { LoginStoreService } from './services/login-store.service';
+//CRO-yr5n-WOXN-ejr3D
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,9 @@ import { RegistrationComponent } from './registration/registration.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [EmployeeService,
+    LoginService,
+    LoginStoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
