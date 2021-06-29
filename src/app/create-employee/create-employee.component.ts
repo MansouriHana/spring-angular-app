@@ -28,7 +28,10 @@ export class CreateEmployeeComponent implements OnInit {
       this.employee =  new Employee(0,"","","",false,"");
       this.gotoList();
     },
-      error => console.log("error => ", error)
+      error => {
+        console.log("error => ", error);
+        this.submitted = false;
+      }
     );
   }
   onSubmit() {
