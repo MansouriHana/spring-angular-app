@@ -19,7 +19,6 @@ import com.crudApp.model.JwtResponse;
 import com.crudApp.repositories.EmployeeRepository;
 import com.crudApp.services.MyUserDetailsService;
 
-import app.miniblogs.models.User;
 
 
 

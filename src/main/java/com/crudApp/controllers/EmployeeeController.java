@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.crudApp.exception.EmployeeNotFound;
 import com.crudApp.model.Employee;
 import com.crudApp.repositories.EmployeeRepository;
+import com.crudApp.services.MyUserDetailsService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class EmployeeeController {
-
+	@Autowired
+	private MyUserDetailsService userDetailsService;
 	@Autowired
 	private EmployeeRepository employeeRepository;
 	
@@ -33,9 +35,9 @@ public class EmployeeeController {
 	}
 	
 	@PostMapping("/employees")
-	public Employee createEmployee(@Validated @RequestBody Employee employee) {
+	public ResponseEntity<?> createEmployee(@Validated @RequestBody Employee employee) {
 		System.out.println("email >>>> "+employee.getEmailId());
-		return employeeRepository.save(employee);
+		return ResponseEntity.ok(userDetailsService.save(employee));
 		//return null;
 	}
 	
